@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #ffffff;
+  --sage: #a8b5a2;
+  --font-playfair: "Playfair Display", Georgia, serif;
+  --font-poppins: "Poppins", "Segoe UI", Arial, sans-serif;
+  --font-great-vibes: "Great Vibes", "Brush Script MT", cursive;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(216, 199, 163, 0.22), transparent 26rem),
+    radial-gradient(circle at 88% 18%, rgba(168, 181, 162, 0.28), transparent 22rem),
+    linear-gradient(180deg, #ffffff 0%, #f7f8f4 46%, #ffffff 100%);
+  color: #31372f;
+  font-family: var(--font-poppins), sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(168, 181, 162, 0.35);
+}
+
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 24px 80px rgba(80, 94, 73, 0.15);
+  backdrop-filter: blur(24px);
+}
+
+.soft-mask {
+  mask-image: linear-gradient(to bottom, transparent, black 16%, black 84%, transparent);
+}
+
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-sage focus:ring-offset-2 focus:ring-offset-white;
+}
