@@ -7,22 +7,7 @@ const petals = Array.from({ length: 14 }, (_, index) => ({
   left: `${(index * 37) % 100}%`,
   delay: (index % 7) * 0.55,
   duration: 12 + (index % 5) * 2,
-  size: 16 + (index % 5) * 6,
-  color: [
-    "bg-rose-100/70",
-    "bg-pink-50/80",
-    "bg-amber-50/80",
-    "bg-sage/45",
-    "bg-white/95"
-  ][index % 5]
-}));
-
-const leaves = Array.from({ length: 8 }, (_, index) => ({
-  id: index,
-  left: `${(index * 53) % 100}%`,
-  delay: (index % 6) * 0.75,
-  duration: 14 + (index % 4) * 2,
-  size: 18 + (index % 4) * 5
+  size: 7 + (index % 4) * 3
 }));
 
 const particles = Array.from({ length: 18 }, (_, index) => ({
@@ -30,20 +15,12 @@ const particles = Array.from({ length: 18 }, (_, index) => ({
   left: `${(index * 19) % 100}%`,
   top: `${(index * 29) % 100}%`,
   delay: (index % 9) * 0.35,
-  color: [
-    "bg-sage/35",
-    "bg-champagne/38",
-    "bg-rose-100/42",
-    "bg-amber-50/50"
-  ][index % 4]
+  color: "bg-sage/20"
 }));
 
 export default function BackgroundEffects() {
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute left-[-8rem] top-24 h-72 w-72 rounded-full bg-sage/12 blur-2xl sm:blur-3xl" />
-      <div className="absolute right-[-7rem] top-16 h-64 w-64 rounded-full bg-rose-100/18 blur-2xl sm:blur-3xl" />
-      <div className="absolute bottom-10 right-[-9rem] h-80 w-80 rounded-full bg-champagne/16 blur-2xl sm:blur-3xl" />
       {particles.map((particle) => (
         <motion.span
           key={particle.id}
@@ -56,7 +33,7 @@ export default function BackgroundEffects() {
       {petals.map((petal) => (
         <motion.span
           key={petal.id}
-          className={`absolute top-[-12%] rounded-full ${petal.color} shadow-[0_10px_24px_rgba(168,181,162,0.18)]`}
+          className="absolute top-[-12%] rounded-full bg-sage/55 shadow-[0_6px_14px_rgba(168,181,162,0.16)]"
           style={{
             left: petal.left,
             width: petal.size,
@@ -70,25 +47,6 @@ export default function BackgroundEffects() {
             opacity: [0, 0.68, 0.14]
           }}
           transition={{ duration: petal.duration + 3, repeat: Infinity, delay: petal.delay, ease: "linear" }}
-        />
-      ))}
-      {leaves.map((leaf) => (
-        <motion.span
-          key={leaf.id}
-          className="absolute top-[-12%] rounded-full bg-moss/32 shadow-[0_10px_24px_rgba(111,127,105,0.16)]"
-          style={{
-            left: leaf.left,
-            width: leaf.size,
-            height: leaf.size * 2.1,
-            borderRadius: "85% 15% 85% 15%"
-          }}
-          animate={{
-            y: ["0vh", "115vh"],
-            x: [0, leaf.id % 2 ? -38 : 34, -8],
-            rotate: [25, 130, 230],
-            opacity: [0, 0.5, 0.06]
-          }}
-          transition={{ duration: leaf.duration + 3, repeat: Infinity, delay: leaf.delay, ease: "linear" }}
         />
       ))}
     </div>

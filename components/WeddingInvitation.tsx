@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import BackgroundEffects from "@/components/BackgroundEffects";
+import ContactDetails from "@/components/ContactDetails";
 import Countdown from "@/components/Countdown";
 import HeroInvitation from "@/components/HeroInvitation";
 import OpeningIntro from "@/components/OpeningIntro";
@@ -66,6 +67,15 @@ export default function WeddingInvitation() {
             description="Your presence would mean the world to us."
           />
           <RSVPForm />
+        </AnimatedSection>
+
+        <AnimatedSection id="contact" className="py-16">
+          <SectionHeading
+            eyebrow="Contact"
+            title="For Any Details"
+            description="Please feel welcome to contact our families for wedding day information."
+          />
+          <ContactDetails />
         </AnimatedSection>
       </div>
 

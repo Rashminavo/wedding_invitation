@@ -19,7 +19,7 @@ export default function HeroInvitation() {
           whileHover={{ y: -6 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-transparent to-sage/10" />
+          <div className="absolute inset-0 bg-white/35" />
           <div className="relative overflow-hidden rounded-[1.45rem] bg-pearl">
             <Image
               src="/invitation-card.jpg"
