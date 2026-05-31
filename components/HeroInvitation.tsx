@@ -22,7 +22,7 @@ export default function HeroInvitation() {
           <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-sage/20" />
           <div className="relative overflow-hidden rounded-[1.45rem] bg-pearl">
             <Image
-              src="/invitation-card.jpg"
+              src="/invitattion-card.jpg"
               alt="Wedding invitation card for Dhananjaya and Tharanya"
               width={900}
               height={1280}
