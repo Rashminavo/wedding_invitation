@@ -24,8 +24,8 @@ export default function OpeningIntro({ show, onOpen }: OpeningIntroProps) {
         <motion.div
           className="fixed inset-0 z-50 flex touch-none select-none items-center justify-center overflow-hidden bg-white"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: "-8%", filter: "blur(14px)", scale: 1.04 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          exit={{ opacity: 0, y: "-6%", scale: 1.02 }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           onTouchStart={(event) => {
             touchStartY.current = event.touches[0]?.clientY ?? null;
           }}
@@ -48,32 +48,20 @@ export default function OpeningIntro({ show, onOpen }: OpeningIntroProps) {
           aria-label="Swipe up or press Enter to open the wedding invitation"
         >
           <BackgroundEffects />
-          <motion.div
-            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.68)_58%,rgba(255,255,255,0.92)_100%)]"
-            animate={{ opacity: [0.2, 0.62, 0.28] }}
-            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-          />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.58)_58%,rgba(255,255,255,0.9)_100%)]" />
           <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-rose-100/60 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-sage/20 to-transparent" />
           <motion.div
             className="relative z-10 px-6 text-center"
-            initial={{ opacity: 0, y: 22, scale: 0.96, filter: "blur(14px)" }}
-            animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, y: 18, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.34em] text-moss/70">
               The Wedding Of
             </p>
             <motion.h1
-              className="font-script text-6xl leading-none text-ink sm:text-7xl md:text-8xl"
-              animate={{
-                textShadow: [
-                  "0 0 20px rgba(244,194,194,0.38), 0 0 34px rgba(168,181,162,0.3)",
-                  "0 0 54px rgba(168,181,162,0.78), 0 0 34px rgba(216,199,163,0.65)",
-                  "0 0 20px rgba(244,194,194,0.38), 0 0 34px rgba(168,181,162,0.3)"
-                ]
-              }}
-              transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+              className="font-script text-6xl leading-none text-ink drop-shadow-[0_0_24px_rgba(168,181,162,0.55)] sm:text-7xl md:text-8xl"
             >
               Dhananjaya & Tharanya
             </motion.h1>

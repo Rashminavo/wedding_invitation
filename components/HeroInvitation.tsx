@@ -9,14 +9,15 @@ export default function HeroInvitation() {
     <section className="relative z-10 flex min-h-screen items-center justify-center px-4 py-12 sm:px-6">
       <motion.div
         className="w-full max-w-[460px]"
-        initial={{ opacity: 0, y: 44, scale: 0.92, filter: "blur(18px)" }}
-        animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-        transition={{ duration: 1.05, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ opacity: 0, y: 28, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.75, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
       >
         <motion.div
           className="glass relative overflow-hidden rounded-[2rem] p-3"
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ y: 0 }}
+          whileHover={{ y: -6 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-sage/20" />
           <div className="relative overflow-hidden rounded-[1.45rem] bg-pearl">

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const petals = Array.from({ length: 22 }, (_, index) => ({
+const petals = Array.from({ length: 14 }, (_, index) => ({
   id: index,
   left: `${(index * 37) % 100}%`,
   delay: (index % 7) * 0.55,
@@ -17,7 +17,7 @@ const petals = Array.from({ length: 22 }, (_, index) => ({
   ][index % 5]
 }));
 
-const leaves = Array.from({ length: 14 }, (_, index) => ({
+const leaves = Array.from({ length: 8 }, (_, index) => ({
   id: index,
   left: `${(index * 53) % 100}%`,
   delay: (index % 6) * 0.75,
@@ -25,7 +25,7 @@ const leaves = Array.from({ length: 14 }, (_, index) => ({
   size: 18 + (index % 4) * 5
 }));
 
-const particles = Array.from({ length: 38 }, (_, index) => ({
+const particles = Array.from({ length: 18 }, (_, index) => ({
   id: index,
   left: `${(index * 19) % 100}%`,
   top: `${(index * 29) % 100}%`,
@@ -41,17 +41,16 @@ const particles = Array.from({ length: 38 }, (_, index) => ({
 export default function BackgroundEffects() {
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute left-[-8rem] top-24 h-80 w-80 rounded-full bg-sage/30 blur-3xl" />
-      <div className="absolute right-[-7rem] top-16 h-72 w-72 rounded-full bg-rose-200/35 blur-3xl" />
-      <div className="absolute bottom-10 right-[-9rem] h-96 w-96 rounded-full bg-champagne/35 blur-3xl" />
-      <div className="absolute bottom-24 left-1/4 h-64 w-64 rounded-full bg-amber-100/30 blur-3xl" />
+      <div className="absolute left-[-8rem] top-24 h-72 w-72 rounded-full bg-sage/25 blur-2xl sm:blur-3xl" />
+      <div className="absolute right-[-7rem] top-16 h-64 w-64 rounded-full bg-rose-200/30 blur-2xl sm:blur-3xl" />
+      <div className="absolute bottom-10 right-[-9rem] h-80 w-80 rounded-full bg-champagne/30 blur-2xl sm:blur-3xl" />
       {particles.map((particle) => (
         <motion.span
           key={particle.id}
           className={`absolute h-2 w-2 rounded-full ${particle.color} shadow-glow`}
           style={{ left: particle.left, top: particle.top }}
-          animate={{ opacity: [0.25, 0.95, 0.25], scale: [0.8, 2.2, 0.8] }}
-          transition={{ duration: 4.5, repeat: Infinity, delay: particle.delay, ease: "easeInOut" }}
+          animate={{ opacity: [0.35, 0.8, 0.35], scale: [1, 1.7, 1] }}
+          transition={{ duration: 5.5, repeat: Infinity, delay: particle.delay, ease: "easeInOut" }}
         />
       ))}
       {petals.map((petal) => (
@@ -66,11 +65,11 @@ export default function BackgroundEffects() {
           }}
           animate={{
             y: ["0vh", "115vh"],
-            x: [0, petal.id % 2 ? 65 : -55, 18],
-            rotate: [0, 140, 300],
-            opacity: [0, 0.95, 0.15]
+            x: [0, petal.id % 2 ? 36 : -32, 8],
+            rotate: [0, 90, 180],
+            opacity: [0, 0.9, 0.2]
           }}
-          transition={{ duration: petal.duration, repeat: Infinity, delay: petal.delay, ease: "linear" }}
+          transition={{ duration: petal.duration + 3, repeat: Infinity, delay: petal.delay, ease: "linear" }}
         />
       ))}
       {leaves.map((leaf) => (
@@ -85,11 +84,11 @@ export default function BackgroundEffects() {
           }}
           animate={{
             y: ["0vh", "115vh"],
-            x: [0, leaf.id % 2 ? -70 : 58, -12],
-            rotate: [25, 190, 360],
+            x: [0, leaf.id % 2 ? -38 : 34, -8],
+            rotate: [25, 130, 230],
             opacity: [0, 0.75, 0.08]
           }}
-          transition={{ duration: leaf.duration, repeat: Infinity, delay: leaf.delay, ease: "linear" }}
+          transition={{ duration: leaf.duration + 3, repeat: Infinity, delay: leaf.delay, ease: "linear" }}
         />
       ))}
     </div>
