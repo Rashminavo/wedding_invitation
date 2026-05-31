@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import BackgroundEffects from "@/components/BackgroundEffects";
@@ -16,14 +16,9 @@ import { loveStory, schedule } from "@/components/data";
 export default function WeddingInvitation() {
   const [introVisible, setIntroVisible] = useState(true);
 
-  useEffect(() => {
-    const timer = window.setTimeout(() => setIntroVisible(false), 3600);
-    return () => window.clearTimeout(timer);
-  }, []);
-
   return (
     <main className="relative min-h-screen overflow-hidden">
-      <OpeningIntro show={introVisible} />
+      <OpeningIntro show={introVisible} onOpen={() => setIntroVisible(false)} />
       <BackgroundEffects />
       <HeroInvitation />
 
