@@ -22,24 +22,13 @@ export default function HeroInvitation() {
           <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-sage/20" />
           <div className="relative overflow-hidden rounded-[1.45rem] bg-pearl">
             <Image
-              src="/invitattion-card.jpg"
+              src="/invitation-card.jpg"
               alt="Wedding invitation card for Dhananjaya and Tharanya"
               width={900}
               height={1280}
               priority
               className="h-auto w-full object-cover"
-              onError={(event) => {
-                event.currentTarget.style.display = "none";
-              }}
             />
-            <div className="flex min-h-[620px] flex-col items-center justify-center px-8 py-16 text-center">
-              <p className="text-xs uppercase tracking-[0.34em] text-moss/70">Together With Their Families</p>
-              <h2 className="mt-8 font-script text-6xl leading-none text-ink">Dhananjaya & Tharanya</h2>
-              <p className="mt-8 font-heading text-xl text-moss">Joyfully invite you to celebrate their wedding</p>
-              <div className="my-10 h-px w-36 bg-gradient-to-r from-transparent via-sage to-transparent" />
-              <p className="font-heading text-3xl text-ink">Friday, December 11, 2026</p>
-              <p className="mt-3 text-sm uppercase tracking-[0.24em] text-moss/80">Taj Samudra, Colombo</p>
-            </div>
           </div>
         </motion.div>
       </motion.div>
