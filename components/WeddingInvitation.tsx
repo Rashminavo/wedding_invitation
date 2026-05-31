@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import BackgroundEffects from "@/components/BackgroundEffects";
 import Countdown from "@/components/Countdown";
-import Gallery from "@/components/Gallery";
 import HeroInvitation from "@/components/HeroInvitation";
 import OpeningIntro from "@/components/OpeningIntro";
 import RSVPForm from "@/components/RSVPForm";
@@ -65,15 +64,6 @@ export default function WeddingInvitation() {
           <Timeline items={loveStory} />
         </AnimatedSection>
 
-        <AnimatedSection id="gallery" className="py-16">
-          <SectionHeading
-            eyebrow="Gallery"
-            title="Moments In Bloom"
-            description="A soft collection of memories, smiles, and the quiet magic between them."
-          />
-          <Gallery />
-        </AnimatedSection>
-
         <AnimatedSection id="rsvp" className="py-16">
           <SectionHeading
             eyebrow="RSVP"
@@ -91,7 +81,7 @@ export default function WeddingInvitation() {
         viewport={{ once: true }}
       >
         <p className="font-script text-4xl text-moss">Dhananjaya & Tharanya</p>
-        <p className="mt-2">18 December 2026</p>
+        <p className="mt-2">11 December 2026</p>
       </motion.footer>
     </main>
   );

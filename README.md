@@ -15,15 +15,4 @@ Add your invitation artwork at:
 public/invitation-card.jpg
 ```
 
-Optional gallery images:
-
-```text
-public/gallery-1.jpg
-public/gallery-2.jpg
-public/gallery-3.jpg
-public/gallery-4.jpg
-public/gallery-5.jpg
-public/gallery-6.jpg
-```
-
-Update the exact wedding date, schedule, story, and gallery paths in `components/data.ts`.
+Update the exact schedule and story text in `components/data.ts`.

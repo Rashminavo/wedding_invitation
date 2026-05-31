@@ -1,4 +1,4 @@
-export const weddingDate = "2026-12-18T16:00:00+05:30";
+export const weddingDate = "2026-12-11T16:00:00+05:30";
 
 export const schedule = [
   { time: "4:00 PM", title: "Poruwa Ceremony", detail: "A sacred beginning surrounded by family blessings." },
@@ -13,13 +13,4 @@ export const loveStory = [
   { year: "2021", title: "The Promise", detail: "Two lives slowly choosing the same horizon." },
   { year: "2024", title: "The Yes", detail: "A moment wrapped in light, laughter, and forever." },
   { year: "2026", title: "Wedding Day", detail: "The next chapter begins with everyone we love." }
-];
-
-export const galleryImages = [
-  "/gallery-1.jpg",
-  "/gallery-2.jpg",
-  "/gallery-3.jpg",
-  "/gallery-4.jpg",
-  "/gallery-5.jpg",
-  "/gallery-6.jpg"
 ];

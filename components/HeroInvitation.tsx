@@ -36,8 +36,8 @@ export default function HeroInvitation() {
               <h2 className="mt-8 font-script text-6xl leading-none text-ink">Dhananjaya & Tharanya</h2>
               <p className="mt-8 font-heading text-xl text-moss">Joyfully invite you to celebrate their wedding</p>
               <div className="my-10 h-px w-36 bg-gradient-to-r from-transparent via-sage to-transparent" />
-              <p className="font-heading text-3xl text-ink">18 December 2026</p>
-              <p className="mt-3 text-sm uppercase tracking-[0.24em] text-moss/80">Colombo, Sri Lanka</p>
+              <p className="font-heading text-3xl text-ink">Friday, December 11, 2026</p>
+              <p className="mt-3 text-sm uppercase tracking-[0.24em] text-moss/80">Taj Samudra, Colombo</p>
             </div>
           </div>
         </motion.div>

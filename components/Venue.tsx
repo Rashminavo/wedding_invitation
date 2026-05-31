@@ -4,8 +4,8 @@ import { MapPin, Navigation } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/components/motion";
 
-const mapUrl = "https://www.google.com/maps?q=Colombo%20Sri%20Lanka&output=embed";
-const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=Colombo%20Sri%20Lanka";
+const mapUrl = "https://www.google.com/maps?q=Taj%20Samudra%20Colombo&output=embed";
+const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=Taj%20Samudra%20Colombo";
 
 export default function Venue() {
   return (
@@ -14,10 +14,10 @@ export default function Venue() {
         <MapPin className="h-8 w-8 text-moss" aria-hidden="true" />
         <h3 className="mt-5 font-heading text-3xl text-ink">Wedding Venue</h3>
         <p className="mt-3 leading-7 text-ink/70">
-          Colombo, Sri Lanka
+          Taj Samudra, Colombo
         </p>
         <p className="mt-4 text-sm leading-7 text-ink/65">
-          Please update this card with your exact hotel, ballroom, or reception address before sharing the invitation.
+          A graceful Colombo setting for our ceremony, reception, dinner, and celebration.
         </p>
         <a href={directionsUrl} target="_blank" rel="noreferrer" className="focus-ring mt-6 inline-flex items-center gap-2 rounded-full bg-moss px-5 py-3 text-sm font-semibold text-white transition hover:bg-ink">
           <Navigation className="h-4 w-4" aria-hidden="true" />
