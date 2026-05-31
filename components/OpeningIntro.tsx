@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import BackgroundEffects from "@/components/BackgroundEffects";
 
@@ -9,25 +10,37 @@ type OpeningIntroProps = {
 };
 
 export default function OpeningIntro({ show, onOpen }: OpeningIntroProps) {
+  const touchStartY = useRef<number | null>(null);
+
+  const openOnce = () => {
+    if (show) {
+      onOpen();
+    }
+  };
+
   return (
     <AnimatePresence>
       {show ? (
         <motion.div
-          className="fixed inset-0 z-50 flex touch-pan-y items-center justify-center overflow-hidden bg-white"
+          className="fixed inset-0 z-50 flex touch-none select-none items-center justify-center overflow-hidden bg-white"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: "-12%", filter: "blur(22px)", scale: 1.08 }}
-          transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1] }}
-          drag="y"
-          dragConstraints={{ top: 0, bottom: 0 }}
-          dragElastic={0.22}
-          onDragEnd={(_, info) => {
-            if (info.offset.y < -70 || info.velocity.y < -420) {
-              onOpen();
+          exit={{ opacity: 0, y: "-8%", filter: "blur(14px)", scale: 1.04 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          onTouchStart={(event) => {
+            touchStartY.current = event.touches[0]?.clientY ?? null;
+          }}
+          onTouchEnd={(event) => {
+            const startY = touchStartY.current;
+            const endY = event.changedTouches[0]?.clientY;
+            touchStartY.current = null;
+
+            if (startY !== null && endY !== undefined && startY - endY > 48) {
+              openOnce();
             }
           }}
           onKeyDown={(event) => {
             if (event.key === "Enter" || event.key === " " || event.key === "ArrowUp") {
-              onOpen();
+              openOnce();
             }
           }}
           tabIndex={0}
@@ -72,7 +85,7 @@ export default function OpeningIntro({ show, onOpen }: OpeningIntroProps) {
             />
             <motion.button
               type="button"
-              onClick={onOpen}
+              onClick={openOnce}
               className="focus-ring mx-auto mt-12 flex flex-col items-center gap-3 rounded-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-moss"
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: [0, -8, 0] }}

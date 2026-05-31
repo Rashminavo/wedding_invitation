@@ -11,7 +11,7 @@ export default function HeroInvitation() {
         className="w-full max-w-[460px]"
         initial={{ opacity: 0, y: 44, scale: 0.92, filter: "blur(18px)" }}
         animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-        transition={{ duration: 1.2, delay: 3.3, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.05, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
       >
         <motion.div
           className="glass relative overflow-hidden rounded-[2rem] p-3"
@@ -47,7 +47,7 @@ export default function HeroInvitation() {
         className="focus-ring absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 rounded-full px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-moss"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 8, 0] }}
-        transition={{ opacity: { delay: 4.1 }, y: { duration: 1.8, repeat: Infinity } }}
+        transition={{ opacity: { delay: 0.9 }, y: { duration: 1.8, repeat: Infinity } }}
       >
         Scroll to Explore
         <ChevronDown className="h-5 w-5" aria-hidden="true" />

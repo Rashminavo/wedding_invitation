@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://wedding-invitation.vercel.app"),
   title: "Dhananjaya & Tharanya | Wedding Invitation",
   description:
-    "A premium digital wedding invitation for Dhananjaya and Tharanya with ceremony details, venue, gallery, countdown, and RSVP.",
+    "A premium digital wedding invitation for Dhananjaya and Tharanya with ceremony details, venue, countdown, and RSVP.",
   keywords: ["wedding invitation", "Dhananjaya", "Tharanya", "Sri Lanka wedding"],
   openGraph: {
     title: "Dhananjaya & Tharanya",
