@@ -9,10 +9,10 @@ const petals = Array.from({ length: 14 }, (_, index) => ({
   duration: 12 + (index % 5) * 2,
   size: 16 + (index % 5) * 6,
   color: [
-    "bg-rose-200/85",
-    "bg-pink-100/90",
-    "bg-amber-100/90",
-    "bg-sage/80",
+    "bg-rose-100/70",
+    "bg-pink-50/80",
+    "bg-amber-50/80",
+    "bg-sage/45",
     "bg-white/95"
   ][index % 5]
 }));
@@ -31,32 +31,32 @@ const particles = Array.from({ length: 18 }, (_, index) => ({
   top: `${(index * 29) % 100}%`,
   delay: (index % 9) * 0.35,
   color: [
-    "bg-sage/65",
-    "bg-champagne/70",
-    "bg-rose-200/70",
-    "bg-amber-100/80"
+    "bg-sage/35",
+    "bg-champagne/38",
+    "bg-rose-100/42",
+    "bg-amber-50/50"
   ][index % 4]
 }));
 
 export default function BackgroundEffects() {
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute left-[-8rem] top-24 h-72 w-72 rounded-full bg-sage/25 blur-2xl sm:blur-3xl" />
-      <div className="absolute right-[-7rem] top-16 h-64 w-64 rounded-full bg-rose-200/30 blur-2xl sm:blur-3xl" />
-      <div className="absolute bottom-10 right-[-9rem] h-80 w-80 rounded-full bg-champagne/30 blur-2xl sm:blur-3xl" />
+      <div className="absolute left-[-8rem] top-24 h-72 w-72 rounded-full bg-sage/12 blur-2xl sm:blur-3xl" />
+      <div className="absolute right-[-7rem] top-16 h-64 w-64 rounded-full bg-rose-100/18 blur-2xl sm:blur-3xl" />
+      <div className="absolute bottom-10 right-[-9rem] h-80 w-80 rounded-full bg-champagne/16 blur-2xl sm:blur-3xl" />
       {particles.map((particle) => (
         <motion.span
           key={particle.id}
           className={`absolute h-2 w-2 rounded-full ${particle.color} shadow-glow`}
           style={{ left: particle.left, top: particle.top }}
-          animate={{ opacity: [0.35, 0.8, 0.35], scale: [1, 1.7, 1] }}
+          animate={{ opacity: [0.2, 0.55, 0.2], scale: [1, 1.55, 1] }}
           transition={{ duration: 5.5, repeat: Infinity, delay: particle.delay, ease: "easeInOut" }}
         />
       ))}
       {petals.map((petal) => (
         <motion.span
           key={petal.id}
-          className={`absolute top-[-12%] rounded-full ${petal.color} shadow-[0_10px_26px_rgba(168,181,162,0.35)]`}
+          className={`absolute top-[-12%] rounded-full ${petal.color} shadow-[0_10px_24px_rgba(168,181,162,0.18)]`}
           style={{
             left: petal.left,
             width: petal.size,
@@ -67,7 +67,7 @@ export default function BackgroundEffects() {
             y: ["0vh", "115vh"],
             x: [0, petal.id % 2 ? 36 : -32, 8],
             rotate: [0, 90, 180],
-            opacity: [0, 0.9, 0.2]
+            opacity: [0, 0.68, 0.14]
           }}
           transition={{ duration: petal.duration + 3, repeat: Infinity, delay: petal.delay, ease: "linear" }}
         />
@@ -75,7 +75,7 @@ export default function BackgroundEffects() {
       {leaves.map((leaf) => (
         <motion.span
           key={leaf.id}
-          className="absolute top-[-12%] rounded-full bg-moss/55 shadow-[0_10px_24px_rgba(111,127,105,0.28)]"
+          className="absolute top-[-12%] rounded-full bg-moss/32 shadow-[0_10px_24px_rgba(111,127,105,0.16)]"
           style={{
             left: leaf.left,
             width: leaf.size,
@@ -86,7 +86,7 @@ export default function BackgroundEffects() {
             y: ["0vh", "115vh"],
             x: [0, leaf.id % 2 ? -38 : 34, -8],
             rotate: [25, 130, 230],
-            opacity: [0, 0.75, 0.08]
+            opacity: [0, 0.5, 0.06]
           }}
           transition={{ duration: leaf.duration + 3, repeat: Infinity, delay: leaf.delay, ease: "linear" }}
         />
