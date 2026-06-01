@@ -5,8 +5,8 @@ import { Phone } from "lucide-react";
 import { fadeUp, stagger } from "@/components/motion";
 
 const contacts = [
-  { label: "Groom's Dad", phone: "+94714273468" },
-  { label: "Bride's Mom", phone: "+94772066314" }
+  { label: "Groom's Dad", phone: "+94 71 427 3468" },
+  { label: "Bride's Mom", phone: "+94 77 206 6314" }
 ];
 
 export default function ContactDetails() {
