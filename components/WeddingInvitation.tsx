@@ -24,6 +24,15 @@ export default function WeddingInvitation() {
       <HeroInvitation />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
+        <AnimatedSection id="story" className="py-16">
+          <SectionHeading
+            eyebrow="Love Story"
+            title="A story that was never supposed to happen"
+            description="Two strangers. One classroom. Ten years in the making."
+          />
+          <Timeline items={loveStory} />
+        </AnimatedSection>
+
         <AnimatedSection id="countdown" className="py-16">
           <SectionHeading
             eyebrow="Counting Down"
@@ -49,15 +58,6 @@ export default function WeddingInvitation() {
             description="A serene destination for family, friends, and the beginning of our next chapter."
           />
           <Venue />
-        </AnimatedSection>
-
-        <AnimatedSection id="story" className="py-16">
-          <SectionHeading
-            eyebrow="Love Story"
-            title="The Journey To This Day"
-            description="A few treasured milestones from the path that brought us here."
-          />
-          <Timeline items={loveStory} />
         </AnimatedSection>
 
         <AnimatedSection id="rsvp" className="py-16">
