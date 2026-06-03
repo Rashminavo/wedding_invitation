@@ -2,83 +2,78 @@
 
 import { motion } from "framer-motion";
 
-const petalShapes = [
-  "70% 30% 70% 30% / 30% 70% 30% 70%",
-  "85% 15% 70% 30% / 25% 75% 35% 65%",
-  "60% 40% 55% 45% / 45% 55% 50% 50%",
+// Rose: blush pink teardrops | Jasmine: ivory white ovals | Marigold: pale gold elongated
+const petalTypes = [
+  { w: 14, h: 20, borderRadius: "85% 15% 70% 30% / 60% 40% 80% 20%" }, // rose
+  { w: 13, h: 19, borderRadius: "20% 80% 30% 70% / 60% 40% 80% 20%" }, // rose alt
+  { w: 7,  h: 14, borderRadius: "50% 50% 50% 50% / 70% 70% 30% 30%" }, // jasmine
+  { w: 6,  h: 12, borderRadius: "50% 50% 48% 52% / 60% 60% 40% 40%" }, // jasmine alt
+  { w: 10, h: 19, borderRadius: "40% 60% 55% 45% / 70% 30% 70% 30%" }, // marigold
+  { w: 9,  h: 16, borderRadius: "50% 50% 40% 60% / 55% 45% 65% 35%" }, // marigold alt
 ];
 
-const petalColors = [
-  "linear-gradient(135deg, #fff0f5 0%, #ffb6c8 100%)",
-  "linear-gradient(135deg, #ffffff 0%, #ff9ab8 100%)",
-  "linear-gradient(135deg, #fff5f7 0%, #ffc0d0 100%)",
+const colorByType = [
+  // rose — blush pink
+  ["linear-gradient(165deg,#fde8ec 0%,#f4a8bb 100%)",
+   "linear-gradient(165deg,#ffd6e7 0%,#f08fad 100%)",
+   "linear-gradient(165deg,#fff0f4 0%,#f9bece 100%)"],
+  // jasmine — ivory white
+  ["linear-gradient(165deg,#fffef9 0%,#f5efdf 100%)",
+   "linear-gradient(165deg,#ffffff 0%,#faf4ec 100%)",
+   "linear-gradient(165deg,#fdfaf3 0%,#ede5d4 100%)"],
+  // marigold — pale gold
+  ["linear-gradient(165deg,#fff8dc 0%,#f0d080 100%)",
+   "linear-gradient(165deg,#fef5c4 0%,#e8c45a 100%)",
+   "linear-gradient(165deg,#fffae8 0%,#f5de98 100%)"],
 ];
 
-const petals = Array.from({ length: 32 }, (_, i) => {
-  const angleDeg = (i / 32) * 360 + (i % 5) * 7;
-  const angleRad = (angleDeg * Math.PI) / 180;
-  const radius = 220 + (i % 6) * 80;
-  return {
-    id: i,
-    endX: Math.cos(angleRad) * radius,
-    endY: Math.sin(angleRad) * radius + radius * 0.18,
-    delay: (i % 9) * 0.42,
-    duration: 5.5 + (i % 5) * 1.4,
-    size: 18 + (i % 5) * 6,
-    shape: petalShapes[i % 3],
-    color: petalColors[i % 3],
-    spin: i % 2 === 0 ? 300 : -300,
-    blurred: i % 3 === 2,
-  };
+const petals = Array.from({ length: 48 }, (_, i) => {
+  const typeIdx = i % petalTypes.length;
+  const groupIdx = typeIdx < 2 ? 0 : typeIdx < 4 ? 1 : 2;
+  const color = colorByType[groupIdx][i % 3];
+  const type = petalTypes[typeIdx];
+
+  const startX = (i * 7.3 + (i % 3) * 13) % 100;
+  const swayX  = ((i % 9) - 4) * 24;         // -96 to +96 px horizontal sway
+  const scale  = 0.6 + (i % 6) * 0.14;       // 0.6–1.4
+  const duration = 13 + (i % 9) * 1.6;       // 13–27 s slow drift
+  const delay  = -((i * duration) / 48);     // stagger: petals start mid-fall
+  const rotEnd = (i % 2 === 0 ? 1 : -1) * (18 + (i % 7) * 10);
+  const peakOpacity = 0.68 + (i % 4) * 0.08; // 0.68–0.92
+  const blur   = i % 7 === 6 ? "blur(1.6px)" : i % 5 === 4 ? "blur(0.7px)" : "none";
+
+  return { id: i, type, color, startX, swayX, scale, duration, delay, rotEnd, peakOpacity, blur };
 });
-
-const particles = Array.from({ length: 18 }, (_, i) => ({
-  id: i,
-  left: `${(i * 19) % 100}%`,
-  top: `${(i * 29) % 100}%`,
-  delay: (i % 9) * 0.35,
-}));
 
 export default function BackgroundEffects() {
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
-      {particles.map((p) => (
+      {petals.map((p) => (
         <motion.span
           key={p.id}
-          className="absolute h-2 w-2 rounded-full bg-sage/20 shadow-glow"
-          style={{ left: p.left, top: p.top }}
-          animate={{ opacity: [0.15, 0.5, 0.15], scale: [1, 1.6, 1] }}
-          transition={{ duration: 5.5, repeat: Infinity, delay: p.delay, ease: "easeInOut" }}
-        />
-      ))}
-      {petals.map((petal) => (
-        <motion.span
-          key={petal.id}
           style={{
             position: "absolute",
-            left: "50%",
-            top: "50%",
-            width: petal.size,
-            height: petal.size * 1.6,
-            marginLeft: -petal.size / 2,
-            marginTop: -(petal.size * 0.8),
-            borderRadius: petal.shape,
-            background: petal.color,
-            boxShadow: "0 4px 22px rgba(230, 80, 120, 0.32), 0 0 16px rgba(255, 140, 170, 0.48), inset 0 1px 0 rgba(255,255,255,0.85)",
-            filter: petal.blurred ? "blur(0.8px)" : "none",
+            left: `${p.startX}%`,
+            top: 0,
+            width:  p.type.w * p.scale,
+            height: p.type.h * p.scale,
+            borderRadius: p.type.borderRadius,
+            background: p.color,
+            filter: p.blur,
+            willChange: "transform, opacity",
           }}
           animate={{
-            x: [0, petal.endX * 0.42, petal.endX],
-            y: [0, petal.endY * 0.42 - 65, petal.endY],
-            rotate: [0, petal.spin / 2, petal.spin],
-            opacity: [0, 1, 0],
-            scale: [0.25, 1.1, 0.9],
+            y:       ["-8vh", "108vh"],
+            x:       [0, p.swayX * 0.3, p.swayX, p.swayX * 0.5, 0],
+            rotate:  [0, p.rotEnd * 0.2, p.rotEnd * 0.55, p.rotEnd * 0.85, p.rotEnd],
+            opacity: [0, p.peakOpacity, p.peakOpacity, p.peakOpacity, 0],
           }}
           transition={{
-            duration: petal.duration,
+            duration: p.duration,
             repeat: Infinity,
-            delay: petal.delay,
-            ease: "easeOut",
+            delay: p.delay,
+            ease: "linear",
+            times: [0, 0.08, 0.5, 0.92, 1],
           }}
         />
       ))}
