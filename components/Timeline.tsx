@@ -10,7 +10,7 @@ type TimelineItem = {
   detail: string;
 };
 
-export default function Timeline({ items }: { items: TimelineItem[] }) {
+export default function Timeline({ items, equalHeight }: { items: TimelineItem[]; equalHeight?: boolean }) {
   return (
     <motion.div className="relative mx-auto max-w-3xl" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }}>
       <div className="absolute left-4 top-2 h-[calc(100%-1rem)] w-px bg-gradient-to-b from-sage/10 via-sage to-sage/10 sm:left-1/2" />
@@ -25,10 +25,10 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
               index % 2 ? "sm:-left-4" : "sm:-right-4"
             }`}
           />
-          <div className="glass w-full rounded-2xl p-5">
+          <div className={`glass w-full rounded-2xl p-5 ${equalHeight ? "h-[260px] overflow-hidden" : ""}`}>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-moss">{item.time ?? item.year}</p>
             <h3 className="mt-2 font-heading text-2xl text-ink">{item.title}</h3>
-            <p className="mt-2 text-sm leading-7 text-ink/70">{item.detail}</p>
+            <p className="mt-2 text-xs leading-6 text-ink/70">{item.detail}</p>
           </div>
         </motion.div>
       ))}

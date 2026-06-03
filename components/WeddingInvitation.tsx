@@ -30,7 +30,7 @@ export default function WeddingInvitation() {
             title="A story that was never thought to happen"
             description="Two strangers. One classroom. Ten years in the making."
           />
-          <Timeline items={loveStory} />
+          <Timeline items={loveStory} equalHeight />
         </AnimatedSection>
 
         <AnimatedSection id="countdown" className="py-16">
