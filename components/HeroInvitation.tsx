@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function HeroInvitation() {
   return (
-    <section className="relative z-10 flex min-h-screen items-center justify-center px-4 py-12 sm:px-6">
+    <section className="relative z-10 flex min-h-screen items-start justify-center px-4 pt-16 pb-12 sm:px-6">
       <motion.div
         className="w-full max-w-[460px]"
         initial={{ opacity: 0, y: 28, scale: 0.96 }}
