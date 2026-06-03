@@ -24,16 +24,16 @@ export default function Countdown() {
   }, []);
 
   return (
-    <motion.div className="grid grid-cols-2 gap-3 sm:grid-cols-4" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }}>
+    <motion.div className="grid grid-cols-4 gap-2 sm:gap-3" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }}>
       {Object.entries(time).map(([label, value]) => (
         <motion.div
           key={label}
           variants={fadeUp}
           whileHover={{ y: -4, scale: 1.02 }}
-          className="glass rounded-2xl px-4 py-6 text-center"
+          className="glass rounded-2xl px-2 py-5 text-center sm:px-4 sm:py-6"
         >
-          <div className="font-heading text-4xl text-ink sm:text-5xl">{String(value).padStart(2, "0")}</div>
-          <div className="mt-2 text-xs font-medium uppercase tracking-[0.24em] text-moss">{label}</div>
+          <div className="font-heading text-2xl text-ink sm:text-5xl">{String(value).padStart(2, "0")}</div>
+          <div className="mt-2 text-[9px] font-medium uppercase tracking-[0.18em] text-moss sm:text-xs sm:tracking-[0.24em]">{label}</div>
         </motion.div>
       ))}
     </motion.div>
