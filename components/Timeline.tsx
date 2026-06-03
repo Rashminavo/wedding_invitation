@@ -25,7 +25,7 @@ export default function Timeline({ items, equalHeight }: { items: TimelineItem[]
               index % 2 ? "sm:-left-4" : "sm:-right-4"
             }`}
           />
-          <div className={`glass w-full rounded-2xl p-5 ${equalHeight ? "h-[260px] overflow-hidden" : ""}`}>
+          <div className={`glass w-full rounded-2xl p-6 ${equalHeight ? "h-[300px] overflow-hidden" : ""}`}>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-moss">{item.time ?? item.year}</p>
             <h3 className="mt-2 font-heading text-2xl text-ink">{item.title}</h3>
             <p className="mt-2 text-xs leading-6 text-ink/70">{item.detail}</p>
