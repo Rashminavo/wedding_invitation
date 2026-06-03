@@ -27,7 +27,7 @@ export default function WeddingInvitation() {
         <AnimatedSection id="story" className="py-16">
           <SectionHeading
             eyebrow="Love Story"
-            title="A story that was never supposed to happen"
+            title="A story that was never thought to happen"
             description="Two strangers. One classroom. Ten years in the making."
           />
           <Timeline items={loveStory} />
