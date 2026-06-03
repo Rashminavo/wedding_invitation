@@ -2,20 +2,16 @@
 
 import { motion } from "framer-motion";
 
-// SVG gradient colour pairs
+// SVG gradient colour pairs — white & pink only
 const gradients = [
-  // blush pink — rose
+  // blush pink
   { id: "gp0", a: "#fde8ec", b: "#f4a8bb" },
   { id: "gp1", a: "#ffd6e7", b: "#f08fad" },
   { id: "gp2", a: "#fff0f4", b: "#f9bece" },
-  // ivory white — jasmine
-  { id: "gj0", a: "#fffef9", b: "#ede0cc" },
-  { id: "gj1", a: "#ffffff", b: "#f0e6d4" },
-  { id: "gj2", a: "#fdfaf3", b: "#e0d0ba" },
-  // pale gold — marigold
-  { id: "gm0", a: "#fff8dc", b: "#e8c050" },
-  { id: "gm1", a: "#fef5c4", b: "#ddb840" },
-  { id: "gm2", a: "#fffae8", b: "#f0d070" },
+  // soft white / pale pink
+  { id: "gw0", a: "#ffffff", b: "#fadadd" },
+  { id: "gw1", a: "#fff5f7", b: "#f9c6cf" },
+  { id: "gw2", a: "#fffbfc", b: "#fce4e8" },
 ];
 
 // Realistic SVG petal paths
@@ -30,13 +26,13 @@ const shapes = {
   jasmine: {
     d: "M8 0C12 5 14 14 14 24C14 34 12 40 8 44C4 40 2 34 2 24C2 14 4 5 8 0Z",
     vw: 16, vh: 44, w: 7, h: 19,
-    grads: ["gj0", "gj1", "gj2"] as const,
+    grads: ["gw0", "gw1", "gw2"] as const,
   },
   // Marigold: rounded body with two soft shoulder bumps at the top (ruffled edge)
   marigold: {
     d: "M16 1C19 0 23 3 21 9C27 9 30 18 29 28C28 38 23 45 16 47C9 45 4 38 3 28C2 18 5 9 11 9C9 3 13 0 16 1Z",
     vw: 32, vh: 47, w: 13, h: 19,
-    grads: ["gm0", "gm1", "gm2"] as const,
+    grads: ["gp2", "gw0", "gp0"] as const,
   },
 };
 
