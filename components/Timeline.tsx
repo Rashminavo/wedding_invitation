@@ -8,6 +8,7 @@ type TimelineItem = {
   year?: string;
   title: string;
   detail: string;
+  bg?: string;
 };
 
 export default function Timeline({ items, equalHeight }: { items: TimelineItem[]; equalHeight?: boolean }) {
@@ -25,10 +26,18 @@ export default function Timeline({ items, equalHeight }: { items: TimelineItem[]
               index % 2 ? "sm:-left-4" : "sm:-right-4"
             }`}
           />
-          <div className={`glass w-full rounded-2xl p-6 ${equalHeight ? "h-[300px] overflow-hidden" : ""}`}>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-moss">{item.time ?? item.year}</p>
-            <h3 className="mt-2 font-heading text-2xl text-ink">{item.title}</h3>
-            <p className="mt-2 text-xs leading-6 text-ink/70">{item.detail}</p>
+          <div className={`glass w-full rounded-2xl p-6 relative overflow-hidden ${equalHeight ? "h-[300px]" : ""}`}>
+            {item.bg && (
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-[0.32]"
+                style={{ backgroundImage: `url(${item.bg})` }}
+              />
+            )}
+            <div className={`relative z-10 ${equalHeight ? "h-full overflow-hidden" : ""}`}>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-moss">{item.time ?? item.year}</p>
+              <h3 className="mt-2 font-heading text-2xl text-ink">{item.title}</h3>
+              <p className="mt-2 text-xs leading-6 text-ink/70">{item.detail}</p>
+            </div>
           </div>
         </motion.div>
       ))}
