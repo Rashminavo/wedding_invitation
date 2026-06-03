@@ -14,7 +14,7 @@ export default function Venue() {
         <MapPin className="h-8 w-8 text-moss" aria-hidden="true" />
         <h3 className="mt-5 font-heading text-3xl text-ink">Wedding Venue</h3>
         <p className="mt-3 leading-7 text-ink/70">
-          Taj Samudra, Colombo
+          <strong>Taj Samudra, Colombo</strong>
         </p>
         <p className="mt-4 text-sm leading-7 text-ink/65">
           A graceful Colombo setting for our ceremony, reception, dinner, and celebration.
