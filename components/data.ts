@@ -8,9 +8,9 @@ export const schedule = [
 ];
 
 export const loveStory = [
-  { year: "2016", title: "First Hello", detail: "Inside a classroom at NIBM, two strangers crossed paths — without realizing their story had already begun." },
-  { year: "2016-2024", title: "Just Friends", detail: "For years, it was only friendship. Shared laughs. Familiar routines. Moments that felt ordinary at the time." },
+  { year: "2016", title: "First Hello", detail: "Inside a classroom at NIBM, two strangers crossed paths - without realizing their story had already begun.To Tharanya, he was just another face in the crowd. To Dhananjaya, she was simply another girl.Neither knew that a simple hello would one day become the beginning of something extraordinary!" },
+  { year: "2016-2024", title: "Just Friends", detail: "If you asked them back then, they will  tell you it was just friendship.And it was.The kind of friendship that quietly fills their lives  without even noticing. Birthday Parties, Library study sessions, Friends’ weddings and showing up for each other in the smallest ways. Two people who somehow kept finding themselves in the same moments." },
   { year: "2019", title: "Different Skies", detail: "Life happened. Different directions. Different time zones. 8,700 kilometers apart, separated by an ocean — yet somehow, never truly distant." },
-  { year: "2024", title: "Something Changed", detail: "Somewhere between the distance, the conversations, the years, and the silence… something changed." },
-  { year: "2026", title: "Wedding Day", detail: "The two people who were never supposed to fall in love are getting married. The next chapter begins with everyone they love." }
+  { year: "2024", title: "Something Changed", detail: "Somewhere between the distance, the conversations, the years that passed and the moments they shared, I something changed. Softly. Unexpectedly. Beautifully. The two people who were never supposed to fall in love — fell." },
+  { year: "2026", title: "Wedding Day", detail: "Ten years later, here we are!The story that neither of us ever imagined would become forever.Join Dhananjaya and Tharanya as they begin the next chapter.Because some moments are too special for words.Some journeys are too beautiful to explain. And some love stories are better witnessed than told." }
 ];
