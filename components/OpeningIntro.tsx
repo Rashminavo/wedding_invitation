@@ -22,7 +22,7 @@ export default function OpeningIntro({ show, onOpen }: OpeningIntroProps) {
     <AnimatePresence>
       {show ? (
         <motion.div
-          className="fixed inset-0 z-50 flex touch-none select-none items-center justify-center overflow-hidden bg-white"
+          className="fixed inset-0 z-50 flex touch-none select-none items-center justify-center overflow-hidden bg-pearl"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, y: "-6%", scale: 1.02 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
@@ -48,8 +48,8 @@ export default function OpeningIntro({ show, onOpen }: OpeningIntroProps) {
           aria-label="Swipe up or press Enter to open the wedding invitation"
         >
           <BackgroundEffects />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.58)_58%,rgba(255,255,255,0.9)_100%)]" />
-          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-rose-100/60 to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(255,240,232,0.25)_0%,rgba(255,248,244,0.62)_58%,rgba(255,255,255,0.92)_100%)]" />
+          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#FFBBA3]/35 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-sage/20 to-transparent" />
           <motion.div
             className="relative z-10 px-6 text-center"
@@ -61,7 +61,7 @@ export default function OpeningIntro({ show, onOpen }: OpeningIntroProps) {
               The Wedding Of
             </p>
             <motion.h1
-              className="font-script text-6xl leading-none text-ink drop-shadow-[0_0_24px_rgba(168,181,162,0.55)] sm:text-7xl md:text-8xl"
+              className="font-script text-6xl leading-none text-ink drop-shadow-[0_0_28px_rgba(255,187,163,0.75)] sm:text-7xl md:text-8xl"
             >
               Dhananjaya & Tharanya
             </motion.h1>

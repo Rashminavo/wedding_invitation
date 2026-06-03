@@ -33,7 +33,7 @@ export default function BackgroundEffects() {
       {petals.map((petal) => (
         <motion.span
           key={petal.id}
-          className="absolute top-[-12%] rounded-full bg-sage/55 shadow-[0_6px_14px_rgba(168,181,162,0.16)]"
+          className="absolute top-[-12%] rounded-full bg-white/85 shadow-[0_6px_18px_rgba(255,187,163,0.28)]"
           style={{
             left: petal.left,
             width: petal.size,

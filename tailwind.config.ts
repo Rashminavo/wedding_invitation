@@ -10,12 +10,12 @@ const config: Config = {
     extend: {
       colors: {
         ivory: "#FFFFFF",
-        sage: "#A8B5A2",
-        moss: "#6F7F69",
-        pearl: "#F7F8F4",
-        mist: "#EEF2EA",
-        ink: "#31372F",
-        champagne: "#D8C7A3"
+        sage: "#FFBBA3",
+        moss: "#B86B50",
+        pearl: "#FFF8F4",
+        mist: "#FFF0E8",
+        ink: "#3D2B1F",
+        champagne: "#F2D0BA"
       },
       fontFamily: {
         heading: ["var(--font-playfair)", "serif"],
@@ -23,8 +23,8 @@ const config: Config = {
         script: ["var(--font-great-vibes)", "cursive"]
       },
       boxShadow: {
-        luxury: "0 30px 90px rgba(80, 94, 73, 0.18)",
-        glow: "0 0 60px rgba(168, 181, 162, 0.55)"
+        luxury: "0 30px 90px rgba(184, 107, 80, 0.15)",
+        glow: "0 0 60px rgba(255, 187, 163, 0.55)"
       }
     }
   },
