@@ -42,18 +42,18 @@ export default function BackgroundEffects() {
           key={petal.id}
           style={{
             left: petal.left,
-            width: petal.width,
-            height: petal.width * 1.6,
+            width: petal.width * 1.5,
+            height: petal.width * 1.5 * 1.6,
             borderRadius: petal.shape,
-            background: "rgba(255, 255, 255, 0.92)",
-            boxShadow: "0 4px 16px rgba(255, 140, 100, 0.25), 0 0 8px rgba(255, 210, 190, 0.35)",
+            background: "linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,224,210,0.95) 100%)",
+            boxShadow: "0 4px 20px rgba(220, 100, 60, 0.35), 0 0 12px rgba(255, 180, 150, 0.5), inset 0 1px 0 rgba(255,255,255,0.9)",
           }}
           className="absolute top-[-10%]"
           animate={{
             y: ["0vh", "118vh"],
             x: [0, petal.swayDir * 45, petal.swayDir * -20, petal.swayDir * 38],
             rotate: [0, 130, 260, 360],
-            opacity: [0, 0.9, 0.92, 0.08],
+            opacity: [0, 1, 1, 0.12],
           }}
           transition={{
             duration: petal.duration,
