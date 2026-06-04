@@ -9,6 +9,7 @@ type TimelineItem = {
   title: string;
   detail: string;
   bg?: string;
+  bgPosition?: string;
 };
 
 export default function Timeline({ items, equalHeight }: { items: TimelineItem[]; equalHeight?: boolean }) {
@@ -30,7 +31,7 @@ export default function Timeline({ items, equalHeight }: { items: TimelineItem[]
             {item.bg && (
               <div
                 className="absolute inset-0 bg-cover opacity-[0.38]"
-                style={{ backgroundImage: `url(${item.bg})`, backgroundPosition: "center 12%" }}
+                style={{ backgroundImage: `url(${item.bg})`, backgroundPosition: item.bgPosition ?? "center 12%" }}
               />
             )}
             <div className={`relative z-10 ${equalHeight ? "h-full overflow-hidden" : ""}`}>
