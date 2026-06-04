@@ -34,9 +34,9 @@ export default function Timeline({ items, equalHeight }: { items: TimelineItem[]
               />
             )}
             <div className={`relative z-10 ${equalHeight ? "h-full overflow-hidden" : ""}`}>
-              <p className={`text-xs font-semibold uppercase tracking-[0.22em] text-moss ${item.bg ? "[text-shadow:0_1px_6px_rgba(255,252,250,1),0_0_12px_rgba(255,252,250,1)]" : ""}`}>{item.time ?? item.year}</p>
-              <h3 className={`mt-2 font-heading text-2xl text-ink ${item.bg ? "[text-shadow:0_1px_8px_rgba(255,252,250,1),0_0_16px_rgba(255,252,250,0.9)]" : ""}`}>{item.title}</h3>
-              <p className={`mt-2 text-xs leading-6 text-ink/70 ${item.bg ? "[text-shadow:0_1px_6px_rgba(255,252,250,1),0_0_10px_rgba(255,252,250,1)]" : ""}`}>{item.detail}</p>
+              <p className={`text-xs font-bold uppercase tracking-[0.22em] text-moss ${item.bg ? "[text-shadow:0_1px_6px_rgba(255,252,250,1),0_0_12px_rgba(255,252,250,1)]" : ""}`}>{item.time ?? item.year}</p>
+              <h3 className={`mt-2 font-heading text-2xl font-bold text-ink ${item.bg ? "[text-shadow:0_1px_8px_rgba(255,252,250,1),0_0_16px_rgba(255,252,250,0.9)]" : ""}`}>{item.title}</h3>
+              <p className={`mt-2 text-xs font-medium leading-6 text-ink/80 ${item.bg ? "[text-shadow:0_1px_6px_rgba(255,252,250,1),0_0_10px_rgba(255,252,250,1)]" : ""}`}>{item.detail}</p>
             </div>
           </div>
         </motion.div>
