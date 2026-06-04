@@ -29,16 +29,14 @@ export default function Timeline({ items, equalHeight }: { items: TimelineItem[]
           <div className={`glass w-full rounded-2xl p-6 relative overflow-hidden ${equalHeight ? "h-[300px]" : ""}`}>
             {item.bg && (
               <div
-                className="absolute inset-0 bg-cover opacity-[0.28]"
+                className="absolute inset-0 bg-cover opacity-[0.38]"
                 style={{ backgroundImage: `url(${item.bg})`, backgroundPosition: "center 12%" }}
               />
             )}
             <div className={`relative z-10 ${equalHeight ? "h-full overflow-hidden" : ""}`}>
-              <div className={item.bg ? "rounded-xl bg-white/75 px-4 py-3 backdrop-blur-sm" : ""}>
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-moss">{item.time ?? item.year}</p>
-                <h3 className="mt-2 font-heading text-2xl text-ink">{item.title}</h3>
-                <p className="mt-2 text-xs leading-6 text-ink/70">{item.detail}</p>
-              </div>
+              <p className={`text-xs font-semibold uppercase tracking-[0.22em] text-moss ${item.bg ? "[text-shadow:0_1px_6px_rgba(255,252,250,1),0_0_12px_rgba(255,252,250,1)]" : ""}`}>{item.time ?? item.year}</p>
+              <h3 className={`mt-2 font-heading text-2xl text-ink ${item.bg ? "[text-shadow:0_1px_8px_rgba(255,252,250,1),0_0_16px_rgba(255,252,250,0.9)]" : ""}`}>{item.title}</h3>
+              <p className={`mt-2 text-xs leading-6 text-ink/70 ${item.bg ? "[text-shadow:0_1px_6px_rgba(255,252,250,1),0_0_10px_rgba(255,252,250,1)]" : ""}`}>{item.detail}</p>
             </div>
           </div>
         </motion.div>
