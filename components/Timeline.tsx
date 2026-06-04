@@ -26,23 +26,17 @@ export default function Timeline({ items, equalHeight }: { items: TimelineItem[]
               index % 2 ? "sm:-left-4" : "sm:-right-4"
             }`}
           />
-          <div
-            className={`glass w-full rounded-2xl relative overflow-hidden ${item.bg ? "h-[420px]" : equalHeight ? "h-[300px]" : ""}`}
-            style={item.bg ? { background: "rgba(255, 252, 250, 0.08)" } : undefined}
-          >
+          <div className={`glass w-full rounded-2xl p-6 relative overflow-hidden ${equalHeight ? "h-[300px]" : ""}`}>
             {item.bg && (
-              <>
-                <div
-                  className="absolute inset-0 bg-cover"
-                  style={{ backgroundImage: `url(${item.bg})`, backgroundPosition: "center 10%" }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-              </>
+              <div
+                className="absolute inset-0 bg-cover opacity-[0.28]"
+                style={{ backgroundImage: `url(${item.bg})`, backgroundPosition: "center 12%" }}
+              />
             )}
-            <div className={`relative z-10 p-6 ${item.bg ? "absolute inset-x-0 bottom-0" : equalHeight ? "h-full overflow-hidden" : ""}`}>
-              <p className={`text-xs font-semibold uppercase tracking-[0.22em] ${item.bg ? "text-white/80" : "text-moss"}`}>{item.time ?? item.year}</p>
-              <h3 className={`mt-2 font-heading text-2xl ${item.bg ? "text-white" : "text-ink"}`}>{item.title}</h3>
-              <p className={`mt-2 text-xs leading-6 ${item.bg ? "text-white/75" : "text-ink/70"}`}>{item.detail}</p>
+            <div className={`relative z-10 ${equalHeight ? "h-full overflow-hidden" : ""}`}>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-moss">{item.time ?? item.year}</p>
+              <h3 className="mt-2 font-heading text-2xl text-ink">{item.title}</h3>
+              <p className="mt-2 text-xs leading-6 text-ink/70">{item.detail}</p>
             </div>
           </div>
         </motion.div>
