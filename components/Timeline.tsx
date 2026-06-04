@@ -34,9 +34,11 @@ export default function Timeline({ items, equalHeight }: { items: TimelineItem[]
               />
             )}
             <div className={`relative z-10 ${equalHeight ? "h-full overflow-hidden" : ""}`}>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-moss">{item.time ?? item.year}</p>
-              <h3 className="mt-2 font-heading text-2xl text-ink">{item.title}</h3>
-              <p className="mt-2 text-xs leading-6 text-ink/70">{item.detail}</p>
+              <div className={item.bg ? "rounded-xl bg-white/75 px-4 py-3 backdrop-blur-sm" : ""}>
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-moss">{item.time ?? item.year}</p>
+                <h3 className="mt-2 font-heading text-2xl text-ink">{item.title}</h3>
+                <p className="mt-2 text-xs leading-6 text-ink/70">{item.detail}</p>
+              </div>
             </div>
           </div>
         </motion.div>
