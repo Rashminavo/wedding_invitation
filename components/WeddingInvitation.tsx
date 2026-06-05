@@ -7,6 +7,7 @@ import BackgroundEffects from "@/components/BackgroundEffects";
 import ContactDetails from "@/components/ContactDetails";
 import Countdown from "@/components/Countdown";
 import HeroInvitation from "@/components/HeroInvitation";
+import MusicPlayer from "@/components/MusicPlayer";
 import OpeningIntro from "@/components/OpeningIntro";
 import RSVPForm from "@/components/RSVPForm";
 import SectionHeading from "@/components/SectionHeading";
@@ -16,10 +17,17 @@ import { loveStory, schedule } from "@/components/data";
 
 export default function WeddingInvitation() {
   const [introVisible, setIntroVisible] = useState(true);
+  const [musicStarted, setMusicStarted] = useState(false);
+
+  const handleOpen = () => {
+    setIntroVisible(false);
+    setMusicStarted(true);
+  };
 
   return (
     <main className="relative min-h-screen overflow-hidden">
-      <OpeningIntro show={introVisible} onOpen={() => setIntroVisible(false)} />
+      <OpeningIntro show={introVisible} onOpen={handleOpen} />
+      <MusicPlayer src="/music.mp3" autoPlay={musicStarted} />
       <BackgroundEffects />
       <HeroInvitation />
 
