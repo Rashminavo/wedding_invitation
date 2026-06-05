@@ -16,15 +16,28 @@ export default function MusicPlayer({ audioRef }: MusicPlayerProps) {
     return () => clearTimeout(t);
   }, []);
 
+  // Sync playing state with the actual audio element events
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const onPlay = () => setPlaying(true);
+    const onPause = () => setPlaying(false);
+    audio.addEventListener("play", onPlay);
+    audio.addEventListener("pause", onPause);
+    return () => {
+      audio.removeEventListener("play", onPlay);
+      audio.removeEventListener("pause", onPause);
+    };
+  }, [audioRef]);
+
   const toggle = () => {
     const audio = audioRef.current;
     if (!audio) return;
     if (playing) {
       audio.pause();
-      setPlaying(false);
     } else {
       audio.muted = false;
-      audio.play().then(() => setPlaying(true)).catch(() => {});
+      audio.play().catch(() => {});
     }
   };
 
