@@ -27,6 +27,7 @@ const MusicPlayer = forwardRef<MusicPlayerHandle, MusicPlayerProps>(
       play() {
         const audio = audioRef.current;
         if (!audio) return;
+        audio.currentTime = 20;
         audio.play().then(() => setPlaying(true)).catch(() => {});
       },
     }));
