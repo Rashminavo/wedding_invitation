@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import BackgroundEffects from "@/components/BackgroundEffects";
@@ -19,23 +19,22 @@ export default function WeddingInvitation() {
   const [introVisible, setIntroVisible] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Muted autoplay is allowed on all browsers — pre-loads and seeks silently
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    audio.muted = true;
-    audio.currentTime = 50;
-    audio.play().catch(() => {});
-  }, []);
-
   const handleOpen = () => {
     setIntroVisible(false);
-    // Called directly inside the swipe/tap handler — iOS allows play() here
+
     const audio = audioRef.current;
     if (!audio) return;
-    audio.currentTime = 50;
-    audio.muted = false;
+
+    // play() MUST be synchronous inside the gesture — iOS/Android allow it here
     audio.play().catch(() => {});
+
+    // Seek to 0:50 — safe to do async after play() is already requested
+    const seek = () => { audio.currentTime = 50; };
+    if (audio.readyState >= 1) {
+      seek();
+    } else {
+      audio.addEventListener("loadedmetadata", seek, { once: true });
+    }
   };
 
   return (
