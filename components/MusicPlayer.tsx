@@ -22,12 +22,32 @@ const MusicPlayer = forwardRef<MusicPlayerHandle, MusicPlayerProps>(
       return () => clearTimeout(t);
     }, []);
 
+    // iOS requires audio to be "unlocked" by a direct user gesture.
+    // The first touchstart anywhere on the page does a silent play+pause
+    // so all subsequent play() calls work regardless of call depth.
+    useEffect(() => {
+      const audio = audioRef.current;
+      if (!audio) return;
+
+      const unlock = () => {
+        audio.muted = true;
+        audio.play().then(() => {
+          audio.pause();
+          audio.muted = false;
+          audio.currentTime = 50;
+        }).catch(() => {});
+      };
+
+      document.addEventListener("touchstart", unlock, { once: true });
+      return () => document.removeEventListener("touchstart", unlock);
+    }, []);
+
     // Expose play() so the parent can call it directly inside a user gesture
     useImperativeHandle(ref, () => ({
       play() {
         const audio = audioRef.current;
         if (!audio) return;
-        audio.currentTime = 20;
+        audio.currentTime = 50;
         audio.play().then(() => setPlaying(true)).catch(() => {});
       },
     }));
@@ -46,7 +66,7 @@ const MusicPlayer = forwardRef<MusicPlayerHandle, MusicPlayerProps>(
     return (
       <>
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-        <audio ref={audioRef} src={src} loop />
+        <audio ref={audioRef} src={src} loop playsInline preload="metadata" />
 
         <AnimatePresence>
           {visible && (
