@@ -95,7 +95,7 @@ export default function WeddingInvitation() {
         viewport={{ once: true }}
       >
         <p className="font-script text-4xl text-moss">Dhananjaya & Tharanya</p>
-        <p className="mt-2">11 December 2026</p>
+        <p className="mt-2">11th December 2026</p>
       </motion.footer>
     </main>
   );
