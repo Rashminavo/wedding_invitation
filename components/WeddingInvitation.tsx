@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import BackgroundEffects from "@/components/BackgroundEffects";
 import ContactDetails from "@/components/ContactDetails";
 import Countdown from "@/components/Countdown";
 import HeroInvitation from "@/components/HeroInvitation";
-import MusicPlayer from "@/components/MusicPlayer";
+import MusicPlayer, { type MusicPlayerHandle } from "@/components/MusicPlayer";
 import OpeningIntro from "@/components/OpeningIntro";
 import RSVPForm from "@/components/RSVPForm";
 import SectionHeading from "@/components/SectionHeading";
@@ -17,17 +17,18 @@ import { loveStory, schedule } from "@/components/data";
 
 export default function WeddingInvitation() {
   const [introVisible, setIntroVisible] = useState(true);
-  const [musicStarted, setMusicStarted] = useState(false);
+  const musicRef = useRef<MusicPlayerHandle>(null);
 
   const handleOpen = () => {
     setIntroVisible(false);
-    setMusicStarted(true);
+    // Called directly inside the tap — iOS allows audio.play() here
+    musicRef.current?.play();
   };
 
   return (
     <main className="relative min-h-screen overflow-hidden">
       <OpeningIntro show={introVisible} onOpen={handleOpen} />
-      <MusicPlayer src="/music.mp3" autoPlay={musicStarted} />
+      <MusicPlayer ref={musicRef} src="/music.mp3" />
       <BackgroundEffects />
       <HeroInvitation />
 
