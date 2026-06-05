@@ -1,13 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import BackgroundEffects from "@/components/BackgroundEffects";
 import ContactDetails from "@/components/ContactDetails";
 import Countdown from "@/components/Countdown";
 import HeroInvitation from "@/components/HeroInvitation";
-import MusicPlayer, { type MusicPlayerHandle } from "@/components/MusicPlayer";
+import MusicPlayer from "@/components/MusicPlayer";
 import OpeningIntro from "@/components/OpeningIntro";
 import RSVPForm from "@/components/RSVPForm";
 import SectionHeading from "@/components/SectionHeading";
@@ -17,18 +17,34 @@ import { loveStory, schedule } from "@/components/data";
 
 export default function WeddingInvitation() {
   const [introVisible, setIntroVisible] = useState(true);
-  const musicRef = useRef<MusicPlayerHandle>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  // Muted autoplay is allowed on all browsers — pre-loads and seeks silently
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.muted = true;
+    audio.currentTime = 50;
+    audio.play().catch(() => {});
+  }, []);
 
   const handleOpen = () => {
     setIntroVisible(false);
-    // Called directly inside the tap — iOS allows audio.play() here
-    musicRef.current?.play();
+    // Called directly inside the swipe/tap handler — iOS allows play() here
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.currentTime = 50;
+    audio.muted = false;
+    audio.play().catch(() => {});
   };
 
   return (
     <main className="relative min-h-screen overflow-hidden">
+      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+      <audio ref={audioRef} src="/music.mp3" loop playsInline preload="auto" />
+
       <OpeningIntro show={introVisible} onOpen={handleOpen} />
-      <MusicPlayer ref={musicRef} src="/music.mp3" />
+      <MusicPlayer audioRef={audioRef} />
       <BackgroundEffects />
       <HeroInvitation />
 
